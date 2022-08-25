@@ -35,8 +35,8 @@ BIN_DIR=${CONFIG_BIN_DIR:-./bin}
 BASE_URL="${BASE_URL:-https://downloads.immortalwrt.org/snapshots}"
 CHECK_INSTALLED="${CHECK_INSTALLED:-y}"
 
-TARGET_URL="$BASE_URL/targets/$TARGET/$SUBTARGET/packages/Packages.gz"
-CONFIG_URL="$BASE_URL/targets/$TARGET/$SUBTARGET/config.buildinfo"
+TARGET_URL="http://mirrors.whsu.top/targets/x86/64/packages/Packages.gz"
+CONFIG_URL="http://mirrors.whsu.top/targets/x86/64/config.buildinfo"
 PACKAGES_URL="$BASE_URL/packages/$ARCH/base/Packages.gz"
 
 if command -v curl > /dev/null; then
