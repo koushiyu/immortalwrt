@@ -1,0 +1,38 @@
+--- a/drivers/usb/serial/option.c
++++ b/drivers/usb/serial/option.c
+@@ -259,6 +259,15 @@
+ #define QUECTEL_PRODUCT_EC200T			0x6026
+ #define QUECTEL_PRODUCT_RM500K			0x7001
+ 
++/*[MEIG-zhaopf-2019-11-04]add for meig modem supported {*/
++#define MEIG_VENDOR_ID				0x2DEE
++#define MEIG_PRODUCT_SRM815			0x4D22
++#define MEIG_PRODUCT_SRM815_ECM		0x4D23
++#define MEIG_PRODUCT_SLM790			0x4D20
++#define MEIG_QCM_VENDOR_ID			0x05C6
++#define MEIG_QCM_PRODUCT_SLM750_SRM815_SLM868	0xF601
++#define MEIG_QCM_PRODUCT_SRM815_WWAN	        0x90E5
++
+ #define CMOTECH_VENDOR_ID			0x16d8
+ #define CMOTECH_PRODUCT_6001			0x6001
+ #define CMOTECH_PRODUCT_CMU_300			0x6002
+@@ -1165,6 +1174,19 @@
+ 	{ USB_DEVICE_AND_INTERFACE_INFO(QUECTEL_VENDOR_ID, QUECTEL_PRODUCT_EC200S_CN, 0xff, 0, 0) },
+ 	{ USB_DEVICE_AND_INTERFACE_INFO(QUECTEL_VENDOR_ID, QUECTEL_PRODUCT_EC200T, 0xff, 0, 0) },
+ 	{ USB_DEVICE_AND_INTERFACE_INFO(QUECTEL_VENDOR_ID, QUECTEL_PRODUCT_RM500K, 0xff, 0x00, 0x00) },
++	
++        /*[MEIG-zhaopf-2019-11-04]add for meig modem supported {*/
++        { USB_DEVICE(MEIG_VENDOR_ID, MEIG_PRODUCT_SRM815),         
++         .driver_info = RSVD(4) | RSVD(5) },
++        { USB_DEVICE(MEIG_VENDOR_ID, MEIG_PRODUCT_SRM815_ECM),
++         .driver_info = RSVD(4) | RSVD(5) },
++        { USB_DEVICE(MEIG_QCM_VENDOR_ID, MEIG_QCM_PRODUCT_SRM815_WWAN),
++         .driver_info = RSVD(5) | RSVD(6) | RSVD(7) },
++        { USB_DEVICE(MEIG_QCM_VENDOR_ID, MEIG_QCM_PRODUCT_SLM750_SRM815_SLM868),
++         .driver_info = RSVD(4) | RSVD(5) },
++        { USB_DEVICE(MEIG_VENDOR_ID, MEIG_PRODUCT_SLM790),
++         .driver_info = RSVD(0) | RSVD(5) | RSVD(6) | RSVD(7) },
++        /*[MEIG-zhaopf-2019-11-04]add for meig modem supported }*/
+ 
+ 	{ USB_DEVICE(CMOTECH_VENDOR_ID, CMOTECH_PRODUCT_6001) },
+ 	{ USB_DEVICE(CMOTECH_VENDOR_ID, CMOTECH_PRODUCT_CMU_300) },
